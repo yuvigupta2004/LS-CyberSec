@@ -7,8 +7,7 @@ void execute_brainfuck(const char *code) {
     char tape[TAPE_SIZE] = {0};
     char *ptr = tape;
     const char *pc = code;
-    const char *loop_start;
-
+   
     while (*pc) {
         switch (*pc) {
             case '>':
@@ -37,8 +36,6 @@ void execute_brainfuck(const char *code) {
                         if (*pc == '[') ++loop;
                         if (*pc == ']') --loop;
                     }
-                } else {
-                    loop_start = pc;
                 }
                 break;
             case ']':
@@ -49,8 +46,6 @@ void execute_brainfuck(const char *code) {
                         if (*pc == ']') ++loop;
                         if (*pc == '[') --loop;
                     }
-                } else {
-                    loop_start = pc;
                 }
                 break;
             default:
