@@ -1,5 +1,3 @@
-# Flag: flag{f34r1355_5ud0ku_c0nqu3r0r}
-
 import subprocess
 from sudokusolver import Get_List_Of_Moves
 import re
