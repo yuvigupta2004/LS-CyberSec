@@ -43,7 +43,14 @@ void execute_brainfuck(const char *code) {
                 break;
             case ']':
                 if (*ptr != 0) {
-                    pc = loop_start;
+                    int loop = 1;
+                    while (loop > 0) {
+                        --pc;
+                        if (*pc == ']') ++loop;
+                        if (*pc == '[') --loop;
+                    }
+                } else {
+                    loop_start = pc;
                 }
                 break;
             default:
